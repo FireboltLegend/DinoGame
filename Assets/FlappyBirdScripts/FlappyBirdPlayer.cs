@@ -21,7 +21,5 @@ public class Player : MonoBehaviour
                 direction = Vector3.up * strength;
             }
         }
-
-        direction.y
     }
 }
