@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 910527989278593554}
   - component: {fileID: 8767789137220704468}
   - component: {fileID: 2840134017745381610}
+  - component: {fileID: -3404020648606774878}
   m_Layer: 0
   m_Name: Mario
   m_TagString: Player
@@ -100,13 +101,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &2840134017745381610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -121,5 +122,19 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.65, y: 1}
+  m_Size: {x: 0.25, y: 1.15}
   m_Direction: 0
+--- !u!114 &-3404020648606774878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060115201465356957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafd2fc02bbb547d0b9f96a019fc4713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpStrength: 7
