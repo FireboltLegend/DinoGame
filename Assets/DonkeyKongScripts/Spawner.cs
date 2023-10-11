@@ -13,7 +13,8 @@ public class Spawner : MonoBehaviour
     }
 
     private void Spawn() {
-        Instantiate(prefab)
+        Instantiate(prefab, transform.position, Quaternion.identity);
+        Invoke(nameof(Spawn), Random.Range(minTime, maxTime));
     }
 
 }
