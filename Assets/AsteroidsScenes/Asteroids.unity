@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 499910586}
   - component: {fileID: 499910585}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Boundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 690983677}
   - component: {fileID: 690983676}
   - component: {fileID: 690983678}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: asteroidsPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210181284}
   - component: {fileID: 1210181283}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Boundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321113972}
   - component: {fileID: 1321113971}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Boundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5509,7 +5509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2041939034}
   - component: {fileID: 2041939033}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Boundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
