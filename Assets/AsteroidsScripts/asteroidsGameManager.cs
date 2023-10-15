@@ -1,16 +1,22 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class asteroidsGameManager : MonoBehaviour
 {
-   public asteroidsPlayer player;
-   public ParticleSystem explosion;
-   public float respawnTime = 3.0f;
-   public float respawnInvulnerabilityTime = 3.0f;
-   public int lives =3;
-   public int score = 0;
+    public asteroidsPlayer player;
+    public ParticleSystem explosion;
+    public float respawnTime = 5.0f;
+    public float respawnInvulnerabilityTime = 3.0f;
+    public int lives =3;
+    public int score = 0;
 
-   public void AsteroidDestroyed(asteroidScript asteroid)
-   {
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
+
+    public void AsteroidDestroyed(asteroidScript asteroid)
+    {
         this.explosion.transform.position = asteroid.transform.position;
         this.explosion.Play();
 
@@ -24,7 +30,7 @@ public class asteroidsGameManager : MonoBehaviour
         }
         else
         {
-            this.score =+ 25;
+            this.score += 25;
         }
    }
 
@@ -41,14 +47,23 @@ public class asteroidsGameManager : MonoBehaviour
             Invoke(nameof(Respawn), this.respawnTime);
         }
    }
-
-   private void Respawn()
-   {
-    this.player.transform.position = Vector3.zero;
-    this.player.gameObject.layer = LayerMask.NameToLayer("Ignore Collisions");
-    this.player.gameObject.SetActive(true);
-    Invoke(nameof(TurnOnCollisions), this.respawnInvulnerabilityTime);
-   }
+    public void Start()
+    {
+        gameOverText.gameObject.SetActive(false);
+    }
+    private void Update()
+    {
+        scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        livesText.text = Mathf.FloorToInt(lives).ToString("D1");
+    }
+    public void Respawn()
+    {
+        this.player.transform.position = Vector3.zero;
+        this.player.gameObject.layer = LayerMask.NameToLayer("Ignore Collisions");
+        this.player.gameObject.SetActive(true);
+        gameOverText.gameObject.SetActive(false);
+        Invoke(nameof(TurnOnCollisions), this.respawnInvulnerabilityTime);
+    }
 
    private void TurnOnCollisions()
    {
@@ -59,8 +74,8 @@ public class asteroidsGameManager : MonoBehaviour
    {
         this.lives = 3;
         this.score = 0;
-
+        gameOverText.gameObject.SetActive(true);
         Invoke(nameof(Respawn), this.respawnTime);
-   }
+    }
 
 }
