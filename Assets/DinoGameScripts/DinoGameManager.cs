@@ -16,6 +16,7 @@ public class DinoGameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI hiscoreText;
     public Button retryButton;
+    public Button gameMenuButton;
 
     private DinoGamePlayer player;
     private DinoGameSpawner spawner;
@@ -67,6 +68,7 @@ public class DinoGameManager : MonoBehaviour
         spawner.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
+        gameMenuButton.gameObject.SetActive(false);
 
         UpdateHiscore();
     }
@@ -80,6 +82,7 @@ public class DinoGameManager : MonoBehaviour
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
+        gameMenuButton.gameObject.SetActive(true);
 
         UpdateHiscore();
     }

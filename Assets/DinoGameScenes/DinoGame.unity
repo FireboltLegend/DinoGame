@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1156,6 +1156,7 @@ MonoBehaviour:
   scoreText: {fileID: 1993961650}
   hiscoreText: {fileID: 67443057}
   retryButton: {fileID: 985198646}
+  gameMenuButton: {fileID: 0}
 --- !u!1 &1617545166
 GameObject:
   m_ObjectHideFlags: 0
