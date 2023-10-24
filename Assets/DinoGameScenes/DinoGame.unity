@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 1086616891}
   - component: {fileID: 1086616890}
   - component: {fileID: 1086616894}
+  - component: {fileID: 1086616895}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1106,6 +1107,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdb5a6faf8af594bb6722ef45ef8f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1086616895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086616889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca71f9b266b5dd143a7e136a37008db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialGameSpeed: 5
+  gameSpeedIncrease: 0.1
+  gameOverText: {fileID: 1807865645}
+  scoreText: {fileID: 1993961650}
+  hiscoreText: {fileID: 67443057}
+  retryButton: {fileID: 985198646}
+  gameMenuButton: {fileID: 24126618}
 --- !u!1 &1117954290
 GameObject:
   m_ObjectHideFlags: 0
