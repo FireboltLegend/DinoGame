@@ -34,4 +34,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Asteroids");
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("GameMenu");
+    }
 }
