@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public FlappyBirdPlayer player;
     public Text scoreText;
     public GameObject playButton;
+    public GameObject mainMenuButton;
     public GameObject gameOver;
     public GameObject scoreUI;
     private int score;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
 
         playButton.SetActive(false);
+        mainMenuButton.SetActive(false);
         gameOver.SetActive(false);
         scoreUI.SetActive(true);
 
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver.SetActive(true);
         playButton.SetActive(true);
+        mainMenuButton.SetActive(true);
 
         Pause();
     }
