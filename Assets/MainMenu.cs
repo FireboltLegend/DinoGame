@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayDinoGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("DinoGame");
     }
 
@@ -28,15 +29,18 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayDK()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Scene1");
     }
     public void PlayAsteroid()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Asteroids");
     }
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameMenu");
     }
 }
