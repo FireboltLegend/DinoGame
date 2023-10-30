@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class asteroidsGameManager : MonoBehaviour
@@ -55,6 +56,10 @@ public class asteroidsGameManager : MonoBehaviour
     {
         scoreText.text = Mathf.FloorToInt(score).ToString("D5");
         livesText.text = Mathf.FloorToInt(lives).ToString("D1");
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("GameMenu");
+        }
     }
     public void Respawn()
     {
