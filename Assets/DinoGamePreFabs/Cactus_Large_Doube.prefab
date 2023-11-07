@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3366609201036962225}
   - component: {fileID: 6272417335038534627}
   - component: {fileID: -5356111616860910551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cactus_Large_Doube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

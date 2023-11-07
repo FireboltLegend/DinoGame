@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DinoGameManager : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class DinoGameManager : MonoBehaviour
     public float gameSpeedIncrease = 0.1f;
     public float gameSpeed { get; private set; }
 
-    public TextMeshProUGUI gameOverText;
+    // public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI hiscoreText;
-    public Button retryButton;
-    public Button gameMenuButton;
+    // public Button retryButton;
+    // public Button gameMenuButton;
 
     private DinoGamePlayer player;
     private DinoGameSpawner spawner;
@@ -66,9 +67,9 @@ public class DinoGameManager : MonoBehaviour
 
         player.gameObject.SetActive(true);
         spawner.gameObject.SetActive(true);
-        gameOverText.gameObject.SetActive(false);
-        retryButton.gameObject.SetActive(false);
-        gameMenuButton.gameObject.SetActive(false);
+        // gameOverText.gameObject.SetActive(false);
+        // retryButton.gameObject.SetActive(false);
+        // gameMenuButton.gameObject.SetActive(false);
 
         UpdateHiscore();
     }
@@ -80,9 +81,9 @@ public class DinoGameManager : MonoBehaviour
 
         player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
-        gameOverText.gameObject.SetActive(true);
-        retryButton.gameObject.SetActive(true);
-        gameMenuButton.gameObject.SetActive(true);
+        // gameOverText.gameObject.SetActive(true);
+        // retryButton.gameObject.SetActive(true);
+        // gameMenuButton.gameObject.SetActive(true);
 
         UpdateHiscore();
     }
@@ -92,6 +93,10 @@ public class DinoGameManager : MonoBehaviour
         gameSpeed += gameSpeedIncrease * Time.deltaTime;
         score += gameSpeed * Time.deltaTime;
         scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("GameMenu");
+        }
     }
 
     private void UpdateHiscore()

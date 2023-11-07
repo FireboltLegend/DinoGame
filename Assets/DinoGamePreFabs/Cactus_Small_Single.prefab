@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6020122190671533598}
   - component: {fileID: 7681602287486133888}
   - component: {fileID: -1343463639369376002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cactus_Small_Single
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
