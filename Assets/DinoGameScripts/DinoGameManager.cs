@@ -19,7 +19,7 @@ public class DinoGameManager : MonoBehaviour
     // public Button retryButton;
     // public Button gameMenuButton;
 
-    private DinoGamePlayer player;
+    //private DinoGamePlayer player;
     private DinoGameSpawner spawner;
 
     private float score;
@@ -46,7 +46,7 @@ public class DinoGameManager : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<DinoGamePlayer>();
+        //player = FindObjectOfType<DinoGamePlayer>();
         spawner = FindObjectOfType<DinoGameSpawner>();
         
         NewGame();
@@ -65,7 +65,7 @@ public class DinoGameManager : MonoBehaviour
         gameSpeed = initialGameSpeed;
         enabled = true;
 
-        player.gameObject.SetActive(true);
+        //player.gameObject.SetActive(true);
         spawner.gameObject.SetActive(true);
         // gameOverText.gameObject.SetActive(false);
         // retryButton.gameObject.SetActive(false);
@@ -79,7 +79,7 @@ public class DinoGameManager : MonoBehaviour
         gameSpeed = 0f;
         enabled = false;
 
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         // gameOverText.gameObject.SetActive(true);
         // retryButton.gameObject.SetActive(true);
@@ -106,7 +106,7 @@ public class DinoGameManager : MonoBehaviour
         if(score > hiscore)
         {
             hiscore = score;
-            PlayerPrefs.SetFloat("hiscore", hiscore);
+           // PlayerPrefs.SetFloat("hiscore", hiscore);
         }
 
         hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.MLAgents;
+/*using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine.TextCore.Text;
@@ -90,4 +90,4 @@ public class DinoGamePlayer : Agent
             AddReward(1f);
         }
     }
-}
+}*/
