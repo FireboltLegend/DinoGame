@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8953096418656433589}
   - component: {fileID: 7410685763534938242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scoring
   m_TagString: Scoring
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 85520225528097408}
   - component: {fileID: 2821430032440220389}
   - component: {fileID: 416028599468314460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 514732760070488541}
   - component: {fileID: 4800342417870709662}
   - component: {fileID: 5440283541188733269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

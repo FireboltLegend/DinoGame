@@ -37,16 +37,6 @@ public class FlappyBirdPlayer : MonoBehaviour
             direction = Vector3.up * strength;
         }
 
-        /* THIS IS FOR MOBILE
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began) {
-                direction = Vector3.up * strength;
-            }
-        }
-        */
-
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
     }

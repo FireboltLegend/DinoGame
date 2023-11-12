@@ -3,9 +3,9 @@ using UnityEngine;
 public class FlappyBirdSpawner : MonoBehaviour
 {
     public GameObject prefab;
-    public float spawnRate = 1f;
-    public float minHeight = -1f;
-    public float maxHeight = 1f;
+    public float spawnRate = 1.3f; //default 1
+    public float minHeight = -1f; //default -1
+    public float maxHeight = 2.5f; //default 1
 
     private void OnEnable()
     {

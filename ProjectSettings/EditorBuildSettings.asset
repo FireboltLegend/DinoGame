@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/AsteroidsScenes/Asteroids.unity
     guid: 11933a20617cb450fac44d03c9764d6e
   - enabled: 1
-    path: Assets/FlappyBirdScenes/FlappyBird.unity
+    path: Assets/FlappyBirdScenes/FlappyBirdAgent.unity
     guid: 09de81549bd12bd48aa6e1fe741e09ae
   - enabled: 1
     path: Assets/Scene1.unity
