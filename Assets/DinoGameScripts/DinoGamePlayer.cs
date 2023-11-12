@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System.Collections;
 using System.Collections.Generic;
-/*using Unity.MLAgents;
+using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine.TextCore.Text;
@@ -81,13 +81,13 @@ public class DinoGamePlayer : Agent
     {
         if(other.CompareTag("Obstacle"))
         {
-            AddReward(-2f);
+            AddReward(-10f);
             EndEpisode();
             // DinoGameManager.Instance.GameOver();
         }
         else
         {
-            AddReward(1f);
+            AddReward(0.5f);
         }
     }
-}*/
+}
