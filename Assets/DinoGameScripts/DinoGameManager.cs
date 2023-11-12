@@ -11,7 +11,7 @@ public class DinoGameManager : MonoBehaviour
 
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
-    public static float gameSpeed { get; set; }
+    public float gameSpeed { get; set; }
 
     // public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI scoreText;

@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &968210558673903584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8300612495481414018}
+  - component: {fileID: 3765491437424702594}
+  m_Layer: 7
+  m_Name: GameObject
+  m_TagString: Goal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8300612495481414018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968210558673903584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2918982599454812341}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3765491437424702594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968210558673903584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9583333, y: 0.8333333, z: 0.2}
+  m_Center: {x: 0, y: 0.74999994, z: 0}
 --- !u!1 &7045994913424064472
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,9 +55,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2918982599454812341}
   - component: {fileID: 5827132116158870389}
-  - component: {fileID: 8694876358023999770}
   - component: {fileID: 4832294705325412485}
   - component: {fileID: 5514610483336738618}
+  - component: {fileID: 7348424290903448424}
   m_Layer: 7
   m_Name: Bird
   m_TagString: Obstacle
@@ -31,7 +76,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8300612495481414018}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,19 +133,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &8694876358023999770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7045994913424064472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9583333, y: 0.8333333, z: 0.2}
-  m_Center: {x: 0, y: -0.083333336, z: 0}
 --- !u!114 &4832294705325412485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +160,16 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 4abfc71471c2bad4888897f651325145, type: 3}
   - {fileID: 21300000, guid: 53d51b53bbd84634585be4465073cdde, type: 3}
+--- !u!65 &7348424290903448424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045994913424064472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9583333, y: 0.8333333, z: 0.2}
+  m_Center: {x: 0, y: -0.08333334, z: 0}

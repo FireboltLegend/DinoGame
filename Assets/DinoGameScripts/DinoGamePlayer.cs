@@ -9,6 +9,7 @@ using UnityEngine.TextCore.Text;
 using static Google.Protobuf.WellKnownTypes.Field;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SocialPlatforms;
 
 public class DinoGamePlayer : Agent
 {
@@ -57,7 +58,10 @@ public class DinoGamePlayer : Agent
         DinoGameObstacle[] cactus = FindObjectsOfType<DinoGameObstacle>();
         for (int i = 0; i < cactus.Length; i++)
         {
-            sensor.AddObservation(cactus[i].transform.position.x);
+            if (cactus[i].transform.position.x > transform.position.x)
+            {
+                sensor.AddObservation(cactus[i].transform.position.x);
+            }
         }
     }
     public override void OnActionReceived(ActionBuffers actions)
@@ -82,13 +86,13 @@ public class DinoGamePlayer : Agent
         {
             AddReward(-10f);
             DinoGameManager.setScore(0);
-            DinoGameManager.gameSpeed = 5;
+            DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
             EndEpisode();
             // DinoGameManager.Instance.GameOver();
         }
-        else
+        else if(other.CompareTag("Goal"))
         {
-            AddReward(0.5f);
+            AddReward(1f);
         }
     }
 }
