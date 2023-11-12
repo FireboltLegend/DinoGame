@@ -11,7 +11,7 @@ public class DinoGameManager : MonoBehaviour
 
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
-    public float gameSpeed { get; private set; }
+    public static float gameSpeed { get; set; }
 
     // public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI scoreText;
@@ -22,7 +22,12 @@ public class DinoGameManager : MonoBehaviour
     //private DinoGamePlayer player;
     private DinoGameSpawner spawner;
 
-    private float score;
+    private static float score;
+
+    public static void setScore(float newScore)
+    {
+        score = newScore;
+    }
 
     private void Awake()
     {

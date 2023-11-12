@@ -7,6 +7,8 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine.TextCore.Text;
 using static Google.Protobuf.WellKnownTypes.Field;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class DinoGamePlayer : Agent
 {
@@ -55,16 +57,13 @@ public class DinoGamePlayer : Agent
         DinoGameObstacle[] cactus = FindObjectsOfType<DinoGameObstacle>();
         for (int i = 0; i < cactus.Length; i++)
         {
-            if (cactus[i].transform.position.x > 0)
-            {
-                sensor.AddObservation(cactus[i].transform.position.x);
-            }
+            sensor.AddObservation(cactus[i].transform.position.x);
         }
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
         int move = actions.DiscreteActions[0];
-        if (move == 1)
+        if (move == 1 && character.isGrounded)
         {
             direction = Vector3.up * jumpForce;
             character.Move(direction * Time.deltaTime);
@@ -82,6 +81,8 @@ public class DinoGamePlayer : Agent
         if(other.CompareTag("Obstacle"))
         {
             AddReward(-10f);
+            DinoGameManager.setScore(0);
+            DinoGameManager.gameSpeed = 5;
             EndEpisode();
             // DinoGameManager.Instance.GameOver();
         }
