@@ -7,6 +7,12 @@ public class DKGameManager : MonoBehaviour
     private int lives;
     private int score;
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("GameMenu");
+        }
+    }
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -33,12 +39,13 @@ public class DKGameManager : MonoBehaviour
             camera.cullingMask = 0;
         }
 
-        Invoke(nameof(LoadScene), 1f);
+        //Invoke(nameof(LoadScene), 1f);
+        SceneManager.LoadScene("Level1");
     }
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene("Level1");
     }
 
     public void LevelComplete()

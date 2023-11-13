@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     public void PlayDK()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("Level1");
     }
     public void PlayAsteroid()
     {

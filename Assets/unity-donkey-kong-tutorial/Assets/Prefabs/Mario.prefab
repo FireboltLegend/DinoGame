@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4929584073299230352}
   - component: {fileID: 4929584073299230355}
   - component: {fileID: 8051381716770211024}
-  - component: {fileID: 4929584073299230356}
+  - component: {fileID: 8592174511505523402}
+  - component: {fileID: -2324687836507882918}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -30,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,6 +47,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -122,7 +125,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.65, y: 1}
   m_Direction: 0
---- !u!114 &4929584073299230356
+--- !u!114 &8592174511505523402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,14 +134,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 4929584073299230367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4b7e482d96ba945b4c05f8b898b505, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSprites:
-  - {fileID: 21300000, guid: 624c885fe35c0f14f9ffe50a2bcae1c5, type: 3}
-  - {fileID: 21300000, guid: 3b1323bcdc46e90439f6594ff6353291, type: 3}
-  - {fileID: 21300000, guid: 624c885fe35c0f14f9ffe50a2bcae1c5, type: 3}
-  - {fileID: 21300000, guid: 93c14c82f6b03de498a745ee32a5c4c7, type: 3}
-  climbSprite: {fileID: 21300000, guid: e304f525944e327429cca31e4e99f3fb, type: 3}
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 01000000
+    VectorActionSize: 01000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
+--- !u!114 &-2324687836507882918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929584073299230367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0887cc72b610a48808c745e77e846074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  runSprites: []
+  climbSprite: {fileID: 0}
   moveSpeed: 3
   jumpStrength: 4
