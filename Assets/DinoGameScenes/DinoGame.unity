@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &24126617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 155678331}
   - component: {fileID: 155678332}
   - component: {fileID: 155678330}
+  - component: {fileID: 155678333}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -508,6 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6737556350c57d346b74bded916e6ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
   gravity: 19.62
   jumpForce: 8
 --- !u!114 &155678332
@@ -525,6 +530,37 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: e35f3bf89a618e746ad5ea29c4d5f867, type: 3}
   - {fileID: 21300000, guid: 5a19a241e0e19be42b975504bd5d130d, type: 3}
+--- !u!114 &155678333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155678327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 01000000
+    VectorActionSize: 01000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
 --- !u!1 &507851535
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &985198645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1152,11 +1188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialGameSpeed: 5
   gameSpeedIncrease: 0.1
-  gameOverText: {fileID: 1807865645}
   scoreText: {fileID: 1993961650}
   hiscoreText: {fileID: 67443057}
-  retryButton: {fileID: 985198646}
-  gameMenuButton: {fileID: 24126618}
 --- !u!1 &1617545166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1807865645
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class DinoGamePlayer : Agent
         position.y = 0f;
         transform.position = position;
         direction = Vector3.zero;
-
+        isJumpInputDown = false;
         DinoGameObstacle[] cactus = FindObjectsOfType<DinoGameObstacle>();
 
         for (int i = 0; i < cactus.Length; i++)
@@ -46,6 +46,7 @@ public class DinoGamePlayer : Agent
             
             if(Input.GetButton("Jump"))
             {
+                isJumpInputDown = true;
                 direction = Vector3.up * jumpForce;
             }
         }
@@ -84,15 +85,15 @@ public class DinoGamePlayer : Agent
     {
         if(other.CompareTag("Obstacle"))
         {
-            AddReward(-10f);
+            AddReward(-10);
             DinoGameManager.setScore(0);
-            DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
+            // DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
             EndEpisode();
             // DinoGameManager.Instance.GameOver();
         }
-        else if(other.CompareTag("Goal"))
+        if(other.CompareTag("Goal"))
         {
-            AddReward(1f);
+            AddReward(0.1f);
         }
     }
 }
