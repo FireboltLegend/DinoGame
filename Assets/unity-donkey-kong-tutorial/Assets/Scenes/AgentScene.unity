@@ -123,6 +123,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29262277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29262278}
+  - component: {fileID: 29262279}
+  m_Layer: 6
+  m_Name: Ray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29262278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29262277}
+  m_LocalRotation: {x: 0, y: 0, z: 0.42261833, w: -0.90630776}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4929584072699778508}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29262279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29262277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67c7e722ba14acd9153bb4488bff6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - Obstacle
+  - Ladder
+  - Objective
+  m_RaysPerDirection: 10
+  m_MaxRayDegrees: 50.3
+  m_SphereCastRadius: 0.3
+  m_RayLength: 50
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294957064
+  m_ObservationStacks: 1
+  m_AlternatingRayOrder: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &108868512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1685,6 +1745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pauline
       objectReference: {fileID: 0}
+    - target: {fileID: 1019850078211712495, guid: f362c8a7a47a0514bbece4e56a1af20a, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f362c8a7a47a0514bbece4e56a1af20a, type: 3}
 --- !u!1001 &3266898069405175196
@@ -1823,8 +1887,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4929584073299230356, guid: bee1f3c5268c99442a8451ef8ca798a0, type: 3}
+    - {fileID: -3947938583968976458, guid: bee1f3c5268c99442a8451ef8ca798a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bee1f3c5268c99442a8451ef8ca798a0, type: 3}
 --- !u!1 &4929584072699778505 stripped
 GameObject:
@@ -1847,8 +1924,11 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  runSprites: []
-  climbSprite: {fileID: 0}
+  runSprites:
+  - {fileID: 21300000, guid: 624c885fe35c0f14f9ffe50a2bcae1c5, type: 3}
+  - {fileID: 21300000, guid: 3b1323bcdc46e90439f6594ff6353291, type: 3}
+  - {fileID: 21300000, guid: 93c14c82f6b03de498a745ee32a5c4c7, type: 3}
+  climbSprite: {fileID: 21300000, guid: e304f525944e327429cca31e4e99f3fb, type: 3}
   moveSpeed: 3
   jumpStrength: 4
 --- !u!114 &4929584072699778507
@@ -1864,12 +1944,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
-    NumStackedVectorObservations: 1
+    VectorObservationSize: 2
+    NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
+      BranchSizes: 020000000200000002000000
+    VectorActionSize: 020000000200000002000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -1882,6 +1962,25 @@ MonoBehaviour:
   m_UseChildActuators: 1
   m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
+--- !u!4 &4929584072699778508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4929584073299230353, guid: bee1f3c5268c99442a8451ef8ca798a0, type: 3}
+  m_PrefabInstance: {fileID: 4929584072699778504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4929584072699778509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929584072699778505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &7460934568477382871
 PrefabInstance:
   m_ObjectHideFlags: 0

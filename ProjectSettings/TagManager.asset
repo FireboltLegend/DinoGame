@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Asteroid
   - Objective
+  - Ladder
   - Goal
   layers:
   - Default
@@ -25,7 +26,7 @@ TagManager:
   - Ladder
   - Barrel
   - Ground
-  - 
+  - Princess
   - 
   - 
   - 
