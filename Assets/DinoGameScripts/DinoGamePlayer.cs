@@ -86,13 +86,14 @@ public class DinoGamePlayer : Agent
         {
             AddReward(-10f);
             DinoGameManager.setScore(0);
-            DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
+            // DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
             EndEpisode();
             // DinoGameManager.Instance.GameOver();
         }
-        else if(other.CompareTag("Goal"))
+        else
+        // if(other.CompareTag("Goal"))
         {
-            AddReward(1f);
+            AddReward(1f + DinoGameManager.getScore());
         }
     }
 }

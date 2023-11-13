@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialGameSpeed: 5
-  gameSpeedIncrease: 0.1
+  gameSpeedIncrease: 0
   scoreText: {fileID: 1993961650}
   hiscoreText: {fileID: 67443057}
 --- !u!1 &1617545166
