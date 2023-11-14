@@ -24,6 +24,18 @@ public class MarioAgent : Agent
     public float moveSpeed = 3f;
     public float jumpStrength = 4f;
 
+    private bool first = false; 
+
+    private bool second = false; 
+
+    private bool third = false; 
+
+    private bool fourth = false; 
+
+    private bool fifth = false; 
+
+    private bool sixth = false; 
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -42,7 +54,13 @@ public class MarioAgent : Agent
     }*/
 
     public override void OnEpisodeBegin() {
-        transform.localPosition = new Vector3(-5.25f, -5.25f, 0f);
+        transform.localPosition = new Vector3(-5.25f, -5f, 0f);
+        first = false;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
 
         //Purely for training, comment during actual gameplay
         Barrel[] barrels = FindObjectsOfType<Barrel>();
@@ -55,6 +73,7 @@ public class MarioAgent : Agent
     {
         CheckCollision();
         AnimateSprite();
+        
     }
 
     public override void CollectObservations(VectorSensor sensor) {
@@ -72,7 +91,7 @@ public class MarioAgent : Agent
             direction.y = moveSpeed;
         } else if(moveY == 2 && climbing) {
             direction.y = -1 * moveSpeed;
-        } else if(jump == 1) {
+        } else if(jump == 1 && grounded) {
             direction = Vector2.up * jumpStrength;
         } else {
             direction+= Physics2D.gravity * Time.deltaTime;
@@ -80,7 +99,9 @@ public class MarioAgent : Agent
 
         if(moveX == 1) {
             direction.x = moveSpeed;
-        } else if(moveX == 2) {
+        } 
+        if(moveX == 2) {
+            Debug.Log("Moving left");
             direction.x = -1 * moveSpeed;
         }
 
@@ -155,11 +176,43 @@ public class MarioAgent : Agent
                 // Turn off collision on platforms the player is not grounded to
                 Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
                 //Physics2D.IgnoreCollision(overlaps[i], collider, !grounded);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground1") && first == false) {
+                first = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(10f);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground2") && second == false) {
+                second = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(12f);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground3") && third == false) {
+                third = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(14f);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground4") && fourth == false) {
+                fourth = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(16f);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground5") && fifth == false) {
+                fifth = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(18f);
+            } else if(hit.layer == LayerMask.NameToLayer("Ground6") && sixth == false) {
+                sixth = true;
+                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
+                Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
+                AddReward(20f);
             }
             else if (hit.layer == LayerMask.NameToLayer("Ladder"))
             {
                 climbing = true;
             }
+
+
         }
     }
 
@@ -197,7 +250,7 @@ public class MarioAgent : Agent
           Commented out for Training purposes
           enabled = false;
             FindObjectOfType<DKGameManager>().LevelComplete();*/
-            AddReward(20f);
+            AddReward(100f);
             EndEpisode();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
@@ -206,7 +259,7 @@ public class MarioAgent : Agent
             Commented out for Training purposes
             enabled = false;
             FindObjectOfType<DKGameManager>().LevelFailed();*/
-            AddReward(-2f);
+            AddReward(-5f);
             EndEpisode();
         }
     }
