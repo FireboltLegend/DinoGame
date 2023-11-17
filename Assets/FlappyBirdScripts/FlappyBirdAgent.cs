@@ -94,13 +94,13 @@ public class FlappyBirdAgent : Agent
         if (other.gameObject.tag == "Obstacle") {
             FindObjectOfType<GameManager>().GameOver(); //comment this out to train
             /* FOR TRAINING
-            AddReward(-5f);
+            AddReward(-10f);
             EndEpisode(); */
         }
         else if (other.gameObject.tag == "Scoring") {
             FindObjectOfType<GameManager>().IncreaseScore(); //comment this out to train
             /* FOR TRAINING
-            AddReward(10f); */
+            AddReward(5f); */
         }
     }
 }

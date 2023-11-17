@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour
     public FlappyBirdPlayer player;
     public FlappyBirdAgent agent;
     public Text scoreText;
+    public Text highScoreText;
     public GameObject playButton;
     public GameObject mainMenuButton;
     public GameObject gameOver;
     public GameObject scoreUI;
+    public GameObject highScoreUI;
     private int score;
+    private static int highScore;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
         playButton.SetActive(false);
         mainMenuButton.SetActive(false);
         gameOver.SetActive(false);
+        highScoreUI.SetActive(false);
         scoreUI.SetActive(true);
 
         Time.timeScale = 1f;
@@ -51,8 +55,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (score > highScore) {
+            highScore = score;
+            highScoreText.text = "New High Score: " + highScore.ToString();
+        }
+        else {
+            highScoreText.text = "High Score: " + highScore.ToString();
+        }
         gameOver.SetActive(true);
         playButton.SetActive(true);
+        highScoreUI.SetActive(true);
         mainMenuButton.SetActive(true);
         Pause();
     }
