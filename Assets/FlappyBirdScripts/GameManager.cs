@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public FlappyBirdPlayer player;
@@ -57,5 +58,11 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("GameMenu");
+        }
     }
 }
