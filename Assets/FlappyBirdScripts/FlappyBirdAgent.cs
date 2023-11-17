@@ -35,12 +35,12 @@ public class FlappyBirdAgent : Agent
         transform.position = position;
         direction = Vector3.zero;
 
-        /* FOR TRAINING */
+        /* FOR TRAINING
         FlappyBirdPipes[] pipes = FindObjectsOfType<FlappyBirdPipes>();
 
         for (int i = 0; i < pipes.Length; i++) {
             Destroy(pipes[i].gameObject);
-        }
+        } */
     }
 
     private void Update()
@@ -55,7 +55,6 @@ public class FlappyBirdAgent : Agent
     public override void CollectObservations(VectorSensor sensor) 
     {
         sensor.AddObservation(transform.position.y);
-
         FlappyBirdPipes[] pipes = FindObjectsOfType<FlappyBirdPipes>();
         for (int i = 0; i < pipes.Length; i++) {
             if (pipes[i].transform.position.x > 0) {
@@ -93,15 +92,15 @@ public class FlappyBirdAgent : Agent
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Obstacle") {
-            //FindObjectOfType<GameManager>().GameOver(); //comment this out to train
-            /* FOR TRAINING */
+            FindObjectOfType<GameManager>().GameOver(); //comment this out to train
+            /* FOR TRAINING
             AddReward(-5f);
-            EndEpisode();
+            EndEpisode(); */
         }
         else if (other.gameObject.tag == "Scoring") {
-            //FindObjectOfType<GameManager>().IncreaseScore(); //comment this out to train
-            /* FOR TRAINING */
-            AddReward(10f);
+            FindObjectOfType<GameManager>().IncreaseScore(); //comment this out to train
+            /* FOR TRAINING
+            AddReward(10f); */
         }
     }
 }

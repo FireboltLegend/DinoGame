@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayFlappy()
     {
-        SceneManager.LoadScene("FlappyBird");
+        SceneManager.LoadScene("FlappyBirdAgent");
     }
     public void PlayDK()
     {

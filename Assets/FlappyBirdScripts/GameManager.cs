@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public FlappyBirdPlayer player;
+    public FlappyBirdAgent agent;
     public Text scoreText;
     public GameObject playButton;
     public GameObject mainMenuButton;
@@ -31,7 +32,8 @@ public class GameManager : MonoBehaviour
         scoreUI.SetActive(true);
 
         Time.timeScale = 1f;
-        player.enabled = true;
+        agent.enabled = true;
+        //player.enabled = true;
 
         FlappyBirdPipes[] pipes = FindObjectsOfType<FlappyBirdPipes>();
 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         player.enabled = false;
+        agent.enabled = false;
     }
 
     public void GameOver()
