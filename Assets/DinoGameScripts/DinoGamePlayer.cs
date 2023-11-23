@@ -85,7 +85,7 @@ public class DinoGamePlayer : Agent
     {
         if(other.CompareTag("Obstacle"))
         {
-            AddReward(-10);
+            AddReward(-1f);
             DinoGameManager.setScore(0);
             // DinoGameManager.Instance.gameSpeed = DinoGameManager.Instance.initialGameSpeed;
             EndEpisode();
@@ -93,7 +93,11 @@ public class DinoGamePlayer : Agent
         }
         if(other.CompareTag("Goal"))
         {
-            AddReward(0.1f);
+            AddReward(10f);
+        }
+        if(other.CompareTag("PunishJump"))
+        {
+            AddReward(-5f);
         }
     }
 }

@@ -1439,6 +1439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
+  - prefab: {fileID: 1122717864700465157, guid: c06fc34410a6f1a40857f2c47e55d7fa, type: 3}
+    spawnChance: 0.25
   - prefab: {fileID: 2962181491735425641, guid: ea53c8cc1fda84d4986e6500f1a81bc6, type: 3}
     spawnChance: 0.2
   - prefab: {fileID: 2107547499616401832, guid: 10bbbc4d19d834c4bb88145538de572b, type: 3}
