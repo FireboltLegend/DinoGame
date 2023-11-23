@@ -11,6 +11,7 @@ TagManager:
   - Objective
   - Ladder
   - Goal
+  - PunishJump
   layers:
   - Default
   - TransparentFX
