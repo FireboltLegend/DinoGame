@@ -20,6 +20,9 @@ public class MarioAgent : Agent
 
     private bool grounded;
     private bool climbing;
+    private bool climbed = false;
+
+    private bool ladderTop = false;
 
     public float moveSpeed = 3f;
     public float jumpStrength = 4f;
@@ -101,7 +104,6 @@ public class MarioAgent : Agent
             direction.x = moveSpeed;
         } 
         if(moveX == 2) {
-            Debug.Log("Moving left");
             direction.x = -1 * moveSpeed;
         }
 
@@ -112,6 +114,7 @@ public class MarioAgent : Agent
         if (direction.x > 0f) {
             transform.eulerAngles = Vector3.zero;
         } else if (direction.x < 0f) {
+            Debug.Log("moving left");
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
     } 
@@ -169,6 +172,10 @@ public class MarioAgent : Agent
 
             if (hit.layer == LayerMask.NameToLayer("Ground"))
             {
+                if(climbed == true && ladderTop == false) {
+                    AddReward(-1f);
+                    Debug.Log("Skipped Ladder");
+                }
                 if(overlaps[i] == null) continue;
                 // Only set as grounded if the platform is below the player
                 grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
@@ -176,8 +183,10 @@ public class MarioAgent : Agent
                 // Turn off collision on platforms the player is not grounded to
                 Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
                 //Physics2D.IgnoreCollision(overlaps[i], collider, !grounded);
-            } else if(hit.layer == LayerMask.NameToLayer("Ground1") && first == false) {
+            } else if(hit.layer == LayerMask.NameToLayer("Ground1") && first == false && ladderTop == true) {
+                Debug.Log("First platform");
                 first = true;
+                ladderTop = false;
                 grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
                 Physics2D.IgnoreCollision(overlaps[i], collider, climbing);
                 AddReward(10f);
@@ -210,8 +219,15 @@ public class MarioAgent : Agent
             else if (hit.layer == LayerMask.NameToLayer("Ladder"))
             {
                 climbing = true;
-            }
+                climbed = true;
 
+            } else if (hit.layer == LayerMask.NameToLayer("LadderTop"))
+            {
+                AddReward(5f);
+                Debug.Log("Ladder Top");
+                ladderTop = true;
+                climbed = false;
+            }
 
         }
     }
