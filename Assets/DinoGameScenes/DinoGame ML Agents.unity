@@ -1182,7 +1182,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117954290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1520,6 +1520,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Obstacle
   - Goal
+  - PunishJump
   m_RaysPerDirection: 10
   m_MaxRayDegrees: 20
   m_SphereCastRadius: 0.1

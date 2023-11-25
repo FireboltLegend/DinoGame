@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!114 &8282582794053226671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1176072229425951926}
   - component: {fileID: 2978256178738021624}
-  - component: {fileID: 4237402455270084693}
   m_Layer: 0
   m_Name: Reward Stay
   m_TagString: Goal
@@ -105,15 +104,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 1}
   m_Center: {x: 0, y: -1.5, z: 0}
---- !u!114 &4237402455270084693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5343091474612166511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c59edfcdb499c4f833bd6c0aec2b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
