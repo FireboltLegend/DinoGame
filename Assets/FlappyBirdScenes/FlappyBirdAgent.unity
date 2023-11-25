@@ -550,13 +550,13 @@ MonoBehaviour:
   m_DetectableTags:
   - Obstacle
   - Scoring
-  m_RaysPerDirection: 10
-  m_MaxRayDegrees: 85
+  m_RaysPerDirection: 5
+  m_MaxRayDegrees: 80
   m_SphereCastRadius: 0.2
   m_RayLength: 20
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294959496
+    m_Bits: 24960
   m_ObservationStacks: 1
   m_AlternatingRayOrder: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -577,7 +577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1317114729
 Transform:
   m_ObjectHideFlags: 0
@@ -768,9 +768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 8051953537225890135, guid: 96fa57483f243fb479c4abe7ac5af4a2, type: 3}
-  spawnRate: 1.5
-  minHeight: -1
-  maxHeight: 2.5
+  spawnRate: 1.8
+  minHeight: -0.75
+  maxHeight: 2.1
 --- !u!4 &1442783088
 Transform:
   m_ObjectHideFlags: 0
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
 --- !u!114 &1975599221
 MonoBehaviour:
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91cd123eb44bd6044805171853cba717, type: 3}
   - {fileID: 21300000, guid: e2b31a527aadc6e44a8e9c994540bc57, type: 3}
   gravity: -11
-  strength: 4.2
+  strength: 5
 --- !u!114 &1975599222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,9 +1291,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: afff97ca305080644ab3259681e336aa, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: FlappyBird
   TeamId: 0
   m_UseChildSensors: 1
@@ -1787,7 +1787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2126639349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239a3c17c3425bb4a838edecfd9e0aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectionPort: 25001
 --- !u!4 &2126639350
 Transform:
   m_ObjectHideFlags: 0

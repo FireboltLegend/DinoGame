@@ -18,6 +18,8 @@ public class FlappyBirdAgent : Agent
 
     private bool isJumpInputDown;
 
+    private float trainingScore;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,6 +36,7 @@ public class FlappyBirdAgent : Agent
         position.y = 0f;
         transform.position = position;
         direction = Vector3.zero;
+        trainingScore = 0f;
 
         /* FOR TRAINING
         FlappyBirdPipes[] pipes = FindObjectsOfType<FlappyBirdPipes>();
@@ -50,11 +53,21 @@ public class FlappyBirdAgent : Agent
         }
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
+        
+        if (transform.position.y < -6f) {
+            FindObjectOfType<GameManager>().GameOver(); //comment this out to train
+            //EndEpisode();
+        }
+
+        if (transform.position.y > 6f) {
+            FindObjectOfType<GameManager>().GameOver(); //comment this out to train
+            //EndEpisode();
+        }
     }
 
     public override void CollectObservations(VectorSensor sensor) 
     {
-        sensor.AddObservation(transform.position.y);
+        sensor.AddObservation(transform.position);
         FlappyBirdPipes[] pipes = FindObjectsOfType<FlappyBirdPipes>();
         for (int i = 0; i < pipes.Length; i++) {
             if (pipes[i].transform.position.x > 0) {
@@ -100,7 +113,9 @@ public class FlappyBirdAgent : Agent
         else if (other.gameObject.tag == "Scoring") {
             FindObjectOfType<GameManager>().IncreaseScore(); //comment this out to train
             /* FOR TRAINING
-            AddReward(5f); */
+            trainingScore += 2.0f;
+            AddReward(3f);
+            AddReward(trainingScore); */
         }
     }
 }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject highScoreUI;
     private int score;
     private static int highScore;
+    public FlappyBirdSocket socketScript;
 
     private void Awake()
     {
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < pipes.Length; i++) {
             Destroy(pipes[i].gameObject);
         }
+
+        socketScript.gameStatus = "fPlay";
+        socketScript.Connection();
     }
 
     public void Pause()
@@ -66,6 +70,8 @@ public class GameManager : MonoBehaviour
         playButton.SetActive(true);
         highScoreUI.SetActive(true);
         mainMenuButton.SetActive(true);
+        socketScript.gameStatus = "fDied";
+        socketScript.Connection();
         Pause();
     }
 

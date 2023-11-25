@@ -10,6 +10,7 @@ public class FlappyBirdSocket : MonoBehaviour
     public int connectionPort = 25001;
     TcpListener server;
     TcpClient client;
+    public string gameStatus;
     
     void Start()
     {
@@ -19,11 +20,12 @@ public class FlappyBirdSocket : MonoBehaviour
         thread.Start();
     }
 
+    /*
     void Update()
     {
         //Listening
         Connection();
-    }
+    } */
     
     void GetData()
     {
@@ -38,7 +40,7 @@ public class FlappyBirdSocket : MonoBehaviour
         server.Stop();
     }
 
-    void Connection()
+    public void Connection()
     {
         // Read data from the network stream
         NetworkStream nwStream = client.GetStream();
@@ -47,16 +49,17 @@ public class FlappyBirdSocket : MonoBehaviour
 
         // Decode the bytes into a string
         string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+        
+        //Write Lines
+        byte[] WriteBuffer = Encoding.ASCII.GetBytes("Flappy Bird Idle");
 
         // Write Lines
-        /*
-        if (playing) {
-            byte[] WriteBuffer = Encoding.ASCII.GetBytes("");
+        if (gameStatus == "fPlay") {
+            WriteBuffer = Encoding.ASCII.GetBytes("Playing Flappy Bird");
         }
-        else if (gameover) {
-            byte[] WriteBuffer = Encoding.ASCII.GetBytes("");
+        else if (gameStatus == "fDied") {
+            WriteBuffer = Encoding.ASCII.GetBytes("Flappy Bird Death");
         }
         nwStream.Write(WriteBuffer, 0, WriteBuffer.Length);
-        */
     }
 }
