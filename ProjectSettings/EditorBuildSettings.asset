@@ -15,9 +15,18 @@ EditorBuildSettings:
     path: Assets/AsteroidsScenes/Asteroids.unity
     guid: 11933a20617cb450fac44d03c9764d6e
   - enabled: 1
-    path: Assets/FlappyBirdScenes/FlappyBirdAgent.unity
-    guid: 09de81549bd12bd48aa6e1fe741e09ae
-  - enabled: 1
     path: Assets/Scene1.unity
     guid: 96e5573da32c641438017d97db2378ad
+  - enabled: 1
+    path: Assets/DinoGameScenes/DinoGame ML Agents.unity
+    guid: 350da4906a59f334fa298df8747ca1e9
+  - enabled: 1
+    path: Assets/DinoGameScenes/DinoGame.unity
+    guid: fe5556667a267423c8ac936736a2e9d6
+  - enabled: 1
+    path: Assets/FlappyBirdScenes/FlappyBirdAgent.unity
+    guid: 22034f38e93f1b3479d8224a342fbb98
+  - enabled: 1
+    path: Assets/FlappyBirdScenes/FlappyBird.unity
+    guid: 01caee82b5e24c742a152237674c4267
   m_configObjects: {}
