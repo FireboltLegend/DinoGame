@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject highScoreUI;
     private int score;
     private static int highScore;
-    public FlappyBirdSocket socketScript;
+    public FlappyBirdOutput script;
 
     private void Awake()
     {
@@ -46,8 +46,7 @@ public class GameManager : MonoBehaviour
             Destroy(pipes[i].gameObject);
         }
 
-        socketScript.gameStatus = "fPlay";
-        socketScript.Connection();
+        script.OutputFile("fPlay");
     }
 
     public void Pause()
@@ -62,16 +61,17 @@ public class GameManager : MonoBehaviour
         if (score > highScore) {
             highScore = score;
             highScoreText.text = "New High Score: " + highScore.ToString();
+            script.gotHighScore = true;
         }
         else {
             highScoreText.text = "High Score: " + highScore.ToString();
+            script.gotHighScore = false;
         }
         gameOver.SetActive(true);
         playButton.SetActive(true);
         highScoreUI.SetActive(true);
         mainMenuButton.SetActive(true);
-        socketScript.gameStatus = "fDied";
-        socketScript.Connection();
+        script.OutputFile("fDied");
         Pause();
     }
 
