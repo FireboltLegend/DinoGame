@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     public void PlayDinoGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("DinoGame");
+        SceneManager.LoadScene("DinoGame ML Agents");
     }
 
     public void PlayFlappy()
